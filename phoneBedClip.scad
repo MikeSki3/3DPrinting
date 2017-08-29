@@ -1,27 +1,50 @@
 rotate([0, -90, 0]){
-    cube([160, 150, 2]);
 
-    translate([0, 2, -40.5])
+    //spacers
+    difference() {
+            //main plate
+            cube([185, 90, 2]);
+            //for(space=[0:10]) {
+                //translate([25, 10 * space, 0]) {
+                    translate([20, 17.5, 0]) cube([165, 50, 2]);
+                //}
+            //}
+        }
+
+    //top connector
+    translate([0, 90, -40.5])
         rotate([90, 0, 0])
-            cube([160, 40.5, 2]);
+            difference() {
+                cube([185, 40.5, 2]);
+                translate([25, 5, 0]) cube([165, 30, 2]);
+            }
             
-    translate([0, 0, -40.5])
-        cube([160, 50, 2]);
+    //back clip        
+    translate([0, 40, -42.5])
+        difference() {
+            cube([185, 50, 2]);
+            translate([25, 10, 0]) cube([165, 30, 2]);
+        }
         
-    translate([0, 150, 0])
+    //bottom bracket
+    //translate([0, 90, 0])
         rotate([90, 0, 0])
-            cube([160, 20, 2]);
-            
-    translate([0, 145, 20])
-        cube([160, 5, 2]);
+            cube([185, 20, 2]);
 
-    translate([2, 110, 0]) {    
+    //bottom lip
+    translate([0, -2, 20])
+        cube([185, 6, 2]);
+
+    //cord holder
+    translate([2, -2, 0]) {
+    //translate([2, 38, 0]) {    
         rotate([0, -90, 0]) {
             difference() {
-                cube([22, 40, 2]);
-                translate([7.5, 0, 0])              cube([5, 20, 2]);
+                cube([22, 50, 2]);
+                translate([7, 20, 0])              cube([6, 30, 2]);
             }
         }
+    //}
     }
 
 }
